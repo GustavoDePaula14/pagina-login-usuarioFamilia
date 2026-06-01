@@ -11,4 +11,5 @@ const juntarUsuarioFamilia = async function(to_email, id) {
     const data = await response.json()
     return data
 }
-await juntarUsuarioFamilia(to_email, id)
+const resultado = await juntarUsuarioFamilia(to_email, id)
+return resultado
