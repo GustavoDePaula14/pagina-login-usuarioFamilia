@@ -6,16 +6,13 @@ const token = urlParams.get('token')
 console.log(token)
 const juntarUsuarioFamilia = async function(token) {
     const url = `https://tcc-back-q3kw.onrender.com/v1/familysync/usuario-familia/emailEnviado?token=${token}`
-    const response = await fetch(url)
-    const data = await response.json()
-    return data
+    const response = await fetch(url, {
+        method: 'POST', // ou 'PUT', dependendo do seu backend
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    return response
 }
-const init = async () => {
-    if (token) {
-        const resultado = await juntarUsuarioFamilia(token);
-    } else {
-        console.error("nenhum token foi encontrado na URL.");
-    }
-};
 
-init();
+juntarUsuarioFamilia();
