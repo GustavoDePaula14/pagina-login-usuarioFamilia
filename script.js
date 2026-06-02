@@ -10,4 +10,12 @@ const juntarUsuarioFamilia = async function(token) {
     const data = await response.json()
     return data
 }
-juntarUsuarioFamilia(token)
+const init = async () => {
+    if (token) {
+        const resultado = await juntarUsuarioFamilia(token);
+    } else {
+        console.error("nenhum token foi encontrado na URL.");
+    }
+};
+
+init();
